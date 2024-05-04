@@ -20,15 +20,6 @@
     <Filter Include="MyGame\Raiden\Background">
       <UniqueIdentifier>{14e497c9-6f6b-4ddc-be16-523014433c59}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MyGame\Raiden\BossBrazil">
-      <UniqueIdentifier>{16b313fe-98c2-4c11-bb80-fc0c540ce0fc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyGame\Raiden\BossJapan">
-      <UniqueIdentifier>{f948e0ad-840f-43e4-9b76-89947f6f911f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyGame\Raiden\BossUSA">
-      <UniqueIdentifier>{1bc6bcb7-bba2-44c5-a964-9a3cc9c5841d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MyGame\Raiden\Fighter">
       <UniqueIdentifier>{74d2d912-8ce9-463e-a579-ba17955e510c}</UniqueIdentifier>
     </Filter>
@@ -135,78 +126,6 @@
     <ClCompile Include="Source\Game\mygame_run.cpp">
       <Filter>MyGame</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\Background\Background.cpp">
-      <Filter>MyGame\Raiden\Background</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\BossBrazil\BossBrazil.cpp">
-      <Filter>MyGame\Raiden\BossBrazil</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\BossJapan\BossJapan.cpp">
-      <Filter>MyGame\Raiden\BossJapan</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\BossUSA\BossUSA.cpp">
-      <Filter>MyGame\Raiden\BossUSA</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\Fighter\Fighter.cpp">
-      <Filter>MyGame\Raiden\Fighter</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\StatusPanel\StatusPanel.cpp">
-      <Filter>MyGame\Raiden\StatusPanel</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\StageUSA\StageUSA.cpp">
-      <Filter>MyGame\Raiden\StageUSA</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\StageJapan\StageJapan.cpp">
-      <Filter>MyGame\Raiden\StageJapan</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\StageBrazil\StageBrazil.cpp">
-      <Filter>MyGame\Raiden\StageBrazil</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\Stage\Stage.cpp">
-      <Filter>MyGame\Raiden\Stage</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\Player\Player.cpp">
-      <Filter>MyGame\Raiden\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\StageManager\StageManager.cpp">
-      <Filter>MyGame\Raiden\StageManager</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\Boss\Boss.cpp">
-      <Filter>MyGame\Raiden\Boss</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\TextGraphics\TextGraphics.cpp">
-      <Filter>MyGame\Raiden\TextGraphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\CollisionBox\CollisionBox.cpp">
-      <Filter>MyGame\Raiden\CollisionBox</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\GameObjectPool\GameObjectPool.cpp">
-      <Filter>MyGame\Raiden\GameObjectPool</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\Bullet\Bullet.cpp">
-      <Filter>MyGame\Raiden\Bullet</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\Xml\tinyxml2.cpp">
-      <Filter>MyGame\Raiden\Xml</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\Xml\XmlReader.cpp">
-      <Filter>MyGame\Raiden\Xml</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\Collidable\Collidable.cpp">
-      <Filter>MyGame\Raiden\Collidable</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\RunningState\RunningState.cpp">
-      <Filter>MyGame\Raiden\RunningState</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\SelectControlState\SelectControlState.cpp">
-      <Filter>MyGame\Raiden\SelectControlState</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\StateManager\StateManager.cpp">
-      <Filter>MyGame\Raiden\StateManager</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\State\State.cpp">
-      <Filter>MyGame\Raiden\State</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Library\audio.h">
@@ -241,105 +160,6 @@
     </ClInclude>
     <ClInclude Include="Source\Game\config.h">
       <Filter>MyGame</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\Background\Background.h">
-      <Filter>MyGame\Raiden\Background</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\BossBrazil\BossBrazil.h">
-      <Filter>MyGame\Raiden\BossBrazil</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\BossJapan\BossJapan.h">
-      <Filter>MyGame\Raiden\BossJapan</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\BossUSA\BossUSA.h">
-      <Filter>MyGame\Raiden\BossUSA</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\Fighter\Fighter.h">
-      <Filter>MyGame\Raiden\Fighter</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\StatusPanel\StatusPanel.h">
-      <Filter>MyGame\Raiden\StatusPanel</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\StageUSA\StageUSA.h">
-      <Filter>MyGame\Raiden\StageUSA</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\StageJapan\StageJapan.h">
-      <Filter>MyGame\Raiden\StageJapan</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\StageBrazil\StageBrazil.h">
-      <Filter>MyGame\Raiden\StageBrazil</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\Stage\Stage.h">
-      <Filter>MyGame\Raiden\Stage</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\Player\Player.h">
-      <Filter>MyGame\Raiden\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\Key\Key.h">
-      <Filter>MyGame\Raiden\Key</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\Boss\Boss.h">
-      <Filter>MyGame\Raiden\Boss</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\StageManager\StageManager.h">
-      <Filter>MyGame\Raiden\StageManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\TextGraphics\TextGraphics.h">
-      <Filter>MyGame\Raiden\TextGraphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\CollisionBox\CollisionBox.h">
-      <Filter>MyGame\Raiden\CollisionBox</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\GameObjectPool\GameObjectPool.h">
-      <Filter>MyGame\Raiden\GameObjectPool</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\Bullet\Bullet.h">
-      <Filter>MyGame\Raiden\Bullet</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\Xml\tinyxml2.h">
-      <Filter>MyGame\Raiden\Xml</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\Xml\XmlReader.h">
-      <Filter>MyGame\Raiden\Xml</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\Collidable\Collidable.h">
-      <Filter>MyGame\Raiden\Collidable</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\Control\Control.h">
-      <Filter>MyGame\Raiden\Control</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\State\State.h">
-      <Filter>MyGame\Raiden\State</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\RunningState\RunningState.h">
-      <Filter>MyGame\Raiden\RunningState</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\SelectControlState\SelectControlState.h">
-      <Filter>MyGame\Raiden\SelectControlState</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\StateManager\StateManager.h">
-      <Filter>MyGame\Raiden\StateManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\Data\PlayerData.h">
-      <Filter>MyGame\Raiden\Data</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\Data\TitleScreenData.h">
-      <Filter>MyGame\Raiden\Data</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\Data\StageData.h">
-      <Filter>MyGame\Raiden\Data</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\Data\BackgroundData.h">
-      <Filter>MyGame\Raiden\Data</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\Data\FighterData.h">
-      <Filter>MyGame\Raiden\Data</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\Data\BossData.h">
-      <Filter>MyGame\Raiden\Data</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\Data\AttackPeriodData.h">
-      <Filter>MyGame\Raiden\Data</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

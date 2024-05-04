@@ -1,39 +1,16 @@
 #include "stdafx.h"
 #include "TextGraphics.h"
-#include <ddraw.h>
 #include "../../../Library/gameutil.h"
-#include "../../../Library/gamecore.h"
 
-namespace Raiden
-{
-	std::size_t TextGraphics::Register(CPoint &&point, std::string text)
-	{
-		points.push_back(std::move(point));
+namespace Raiden {
+	std::size_t TextGraphics::RegisterText(CPoint pos, std::string text) {
 		texts.push_back(text);
-		return points.size() - 1;
+		return texts.size() - 1;
 	}
-
-	void TextGraphics::UpdateText(std::size_t id, std::string text)
-	{
-		if (id < 0 || id >= points.size())
-			return;
-
-		texts[id] = text;
+	void TextGraphics::UpdateText(std::size_t index, std::string text) {
+		texts.at(index) = text;
 	}
-
-	void TextGraphics::Show() const
-	{
-		CDC *p_dc = game_framework::CDDraw::GetBackCDC();
-		game_framework::CTextDraw::ChangeFontLog(p_dc, 30, "Times New Roman", RGB(255, 255, 255));
-
-		for (std::size_t i = 0; i < points.size(); i++)
-			game_framework::CTextDraw::Print(p_dc, points[i].x, points[i].y, texts[i]);
-
-		game_framework::CDDraw::ReleaseBackCDC();
-	}
-	void TextGraphics::Clear()
-	{
-		points.clear();
-		texts.clear();
+	void TextGraphics::ShowTexts() {
+		//game_framework::CTextDraw::Print();
 	}
 }
