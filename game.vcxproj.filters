@@ -126,6 +126,12 @@
     <ClCompile Include="Source\Game\mygame_run.cpp">
       <Filter>MyGame</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Game\Raiden\TextGraphics\TextGraphics.cpp">
+      <Filter>MyGame\Raiden\TextGraphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game\Raiden\StatusPanel\StatusPanel.cpp">
+      <Filter>MyGame\Raiden\StatusPanel</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Library\audio.h">
@@ -160,6 +166,12 @@
     </ClInclude>
     <ClInclude Include="Source\Game\config.h">
       <Filter>MyGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\TextGraphics\TextGraphics.h">
+      <Filter>MyGame\Raiden\TextGraphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\StatusPanel\StatusPanel.h">
+      <Filter>MyGame\Raiden\StatusPanel</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

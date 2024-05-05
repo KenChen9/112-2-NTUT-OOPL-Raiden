@@ -23,6 +23,7 @@ CGameStateRun::~CGameStateRun()
 
 void CGameStateRun::OnBeginState()
 {
+	this->status_panel.InitializeStatus();
 }
 
 void CGameStateRun::OnMove()							// 移動遊戲元素
@@ -43,6 +44,7 @@ void CGameStateRun::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 
 void CGameStateRun::OnLButtonDown(UINT nFlags, CPoint point)  // 處理滑鼠的動作
 {
+	status_panel.DecreaseStatusCount(Raiden::StatusType::LIFE);
 }
 
 void CGameStateRun::OnLButtonUp(UINT nFlags, CPoint point)	// 處理滑鼠的動作
@@ -63,4 +65,6 @@ void CGameStateRun::OnRButtonUp(UINT nFlags, CPoint point)	// 處理滑鼠的動
 
 void CGameStateRun::OnShow()
 {
+	this->status_panel.ShowStatus(this->text_graphics);
+	this->text_graphics.ShowTexts();
 }

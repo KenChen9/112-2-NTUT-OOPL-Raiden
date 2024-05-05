@@ -5,10 +5,18 @@
 namespace Raiden {
 	class TextGraphics {
 	public:
-		std::size_t RegisterText(CPoint pos, std::string text = "");
-		void UpdateText(std::size_t index, std::string text);
-		void ShowTexts();
+		std::size_t RegisterText(const CPoint, const std::string = "");
+		void ChangePosition(const std::size_t, const CPoint);
+		void ChangeText(const std::size_t, const std::string);
+		void ShowTexts() const;
+		int GetTextSize() const;
 	private:
-		std::vector<std::string> texts;
+		struct TextDatum {
+			TextDatum(const CPoint, const std::string);
+			CPoint position;
+			std::string text;
+		};
+		std::vector<TextDatum> text_data;
+		const int text_size = -1;
 	};
 }
