@@ -23,7 +23,6 @@ namespace Raiden
 		{
 			temp = std::make_shared<T>();
 		}
-
 		pool.push_back(temp);
 		return pool.size() - 1;
 	}

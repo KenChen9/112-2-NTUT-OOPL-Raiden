@@ -40,8 +40,8 @@ namespace Raiden
 		bool alive = true;
 		game_framework::CMovingBitmap sprite;
 		CollisionBox collisionBox;
-		int delta_left = 0;
-		int delta_top = 0;
+		int delta_left = -10;
+		int delta_top = -10;
 		bool friendly;
 	};
 }
