@@ -11,7 +11,7 @@ namespace Raiden
 	class Fighter : public Collidable
 	{
 	public:
-		void Init(FighterData &&fighter_data, std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>> bullets);
+		void Init(FighterData &&fighter_data);
 		void Update(const Player &player, int scrolled_distance);
 		void Show();
 		void Destroy();
@@ -23,7 +23,7 @@ namespace Raiden
 	private:
 		void Move(int left, int top);
 		game_framework::CMovingBitmap sprite;
-		std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>> bullets;
+		Raiden::GameObjectPool<Raiden::Bullet> bullets;
 		int health = 10;
 		bool alive = true;
 		std::vector<CPoint> positions;

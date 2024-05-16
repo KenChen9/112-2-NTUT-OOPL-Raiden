@@ -7,6 +7,7 @@ namespace Raiden
 	{
 		this->friendly = friendly;
 		sprite.LoadBitmapByString({ "Resources/1.bmp" });
+		this->sprite.SetTopLeft(-50, -50);
 		collisionBox.Init({ { 0, 0, sprite.GetWidth(), sprite.GetWidth() } });
 		alive = true;
 	}
@@ -56,6 +57,7 @@ namespace Raiden
 	void Bullet::Destroy()
 	{
 		alive = false;
+		this->sprite.SetTopLeft(-50, -50);
 	}
 
 	bool Bullet::IsAlive()

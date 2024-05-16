@@ -51,6 +51,6 @@ namespace Raiden
 			return;
 		
 		this->stage_index = stage_index;
-		stages[stage_index]->Init(std::move(stages_data[stage_index]), fighters, bullets);
+		stages[stage_index]->Init(std::move(stages_data[stage_index]), fighters);
 	}
 }

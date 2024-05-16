@@ -4,9 +4,8 @@
 
 namespace Raiden
 {
-	void Fighter::Init(FighterData &&fighter_data, std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>> bullets)
+	void Fighter::Init(FighterData &&fighter_data)
 	{
-		this->bullets = bullets;
 		int color_mask_red = std::get<0>(fighter_data.color_mask);
 		int color_mask_green = std::get<1>(fighter_data.color_mask);
 		int color_mask_blue = std::get<2>(fighter_data.color_mask);
@@ -42,13 +41,13 @@ namespace Raiden
 		double angleInDegrees = angle * (180.0 / M_PI);
 		if (std::clock() - shoot_clock > 1000)
 		{
-			int index = bullets->AddElement();
-			bullets->operator[](index)->Init(false);
-			bullets->operator[](index)->SetTopLeft({ sprite.GetLeft(),sprite.GetTop()});
+			int index = bullets.AddElement();
+			bullets[index]->Init(false);
+			bullets[index]->SetTopLeft({ sprite.GetLeft(),sprite.GetTop()});
 			if(position_index == positions.size() - 2 && completeness == 1)
-				bullets->operator[](index)->ApplyForce({ 0,3 });
+				bullets[index]->ApplyForce({ 0,3 });
 			else
-				bullets->operator[](index)->ApplyForce({ static_cast<int>(3 * cos(angleInDegrees)),static_cast<int>(-3 * sin(angleInDegrees)) });
+				bullets[index]->ApplyForce({ static_cast<int>(3 * cos(angleInDegrees)),static_cast<int>(-3 * sin(angleInDegrees)) });
 			shoot_clock = std::clock();
 		}
 		// Stay at the last position.

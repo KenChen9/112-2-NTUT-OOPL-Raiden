@@ -4,10 +4,10 @@
 
 namespace Raiden
 {
-	void Stage::Init(StageData &&stage_data,shared_ptr<GameObjectPool<Fighter>>fighters, shared_ptr<GameObjectPool<Bullet>>bullets)
+	void Stage::Init(StageData &&stage_data,shared_ptr<GameObjectPool<Fighter>>fighters)
 	{
 		background.Init(stage_data.background_data);
-		InitDerived(std::move(stage_data), fighters, bullets);
+		InitDerived(std::move(stage_data));
 	}
 
 	void Stage::Update(const Player &player)
