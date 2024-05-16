@@ -2,7 +2,7 @@
 #include <vector>
 #include <queue>
 #include <memory>
-
+#include "../Bullet/Bullet.h"
 namespace Raiden
 {
 	/**
@@ -20,11 +20,14 @@ namespace Raiden
 		void Show();
 		std::size_t GetSize() const;
 		std::shared_ptr<T> operator[](std::size_t index);
+		std::vector<std::shared_ptr<T>> GetVec();
 		void Clear();
 
 	private:
 		std::vector<std::shared_ptr<T>> pool;
 		std::queue<std::shared_ptr<T>> recovery;
+
+		
 
 	};
 }

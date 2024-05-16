@@ -33,6 +33,9 @@ namespace Raiden
 		void Destroy();
 		bool IsAlive();
 		bool IsFriendly();
+		CPoint GetApplyForce();
+		game_framework::CMovingBitmap GetSprite();
+		Bullet& operator=(Bullet& other)=default;
 	private:
 		bool alive = true;
 		game_framework::CMovingBitmap sprite;

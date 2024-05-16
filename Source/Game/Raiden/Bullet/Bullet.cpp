@@ -66,4 +66,13 @@ namespace Raiden
 	{
 		return friendly;
 	}
+	CPoint Bullet::GetApplyForce()
+	{
+		return CPoint(delta_left, delta_top); 
+	}
+
+	game_framework::CMovingBitmap Bullet::GetSprite()
+	{
+		return sprite;
+	}
 }

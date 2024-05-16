@@ -17,6 +17,7 @@ namespace Raiden
 	{
 	public:
 		void CollisionEvent();
+		void BulletEvent();
 		void InitDerived() override;
 		void KeyUp(Control &control) override;
 		void Update(Control &control) override;

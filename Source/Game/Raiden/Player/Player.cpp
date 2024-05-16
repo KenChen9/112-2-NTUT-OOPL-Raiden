@@ -8,13 +8,12 @@
 
 namespace Raiden
 {
-	void Player::Init(PlayerData && player_data, std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>>& bullet)
+	void Player::Init(PlayerData && player_data)
 	{
 		this->life_count = 3;
 		int color_mask_red = std::get<0>(player_data.color_mask);
 		int color_mask_green = std::get<1>(player_data.color_mask);
 		int color_mask_blue = std::get<2>(player_data.color_mask);
-		bullets = bullet;
 		sprite.LoadBitmapByString(player_data.sprites, RGB(color_mask_red, color_mask_green, color_mask_blue));
 		sprite.SetFrameIndexOfBitmap(sprite_index);
 		sprite.SetTopLeft(player_data.init_position.x, player_data.init_position.y);
@@ -65,6 +64,16 @@ namespace Raiden
 		life_count -= 1;
 	}
 
+	std::vector<std::shared_ptr<Bullet>> Player::IsAttack()
+	{
+		return bullets.GetVec();
+	}
+
+	void Player::RecovryBullet()
+	{
+		bullets.Clear();
+	}
+
 	void Player::UpdateByKeyboard(const std::set<Key> &keys)
 	{
 		int left = sprite.GetLeft() + (keys.count(Key::RIGHT) - keys.count(Key::LEFT)) * MOVE_STEP;
@@ -92,11 +101,10 @@ namespace Raiden
 
 		int fire_cooldown_milli = static_cast<int>(static_cast<double>(std::clock() - fire_cooldown_clock) / CLOCKS_PER_SEC * 1000);
 		if (keys.count(Key::FIRE) && fire_cooldown_milli >= 100) {
-			int index = bullets->AddElement();
-			auto test = *bullets;
-			test[index]->Init(true);
-			test[index]->SetTopLeft({ left,top });
-			test[index]->ApplyForce({ 0,-3 });
+			int index = bullets.AddElement();
+			bullets[index]->Init(true);
+			bullets[index]->SetTopLeft({ left,top });
+			bullets[index]->ApplyForce({ 0,-3 });
 			fire_cooldown_clock = std::clock();
 		}
 	}

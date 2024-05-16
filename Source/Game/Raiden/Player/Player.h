@@ -13,7 +13,7 @@ namespace Raiden
 	class Player : public Collidable
 	{
 	public:
-		void Init(PlayerData&& player_data, std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>>& bullet);
+		void Init(PlayerData&& player_data);
 		void Update(const Control &control);
 		void Show();
 		int GetScore() const;
@@ -21,6 +21,8 @@ namespace Raiden
 		int GetLifeCount() const;
 		int GetBombCount() const;
 		void Damage();
+		std::vector<std::shared_ptr<Bullet>> IsAttack();
+		void RecovryBullet();
 	private:
 		void UpdateByKeyboard(const std::set<Key> &keys);
 		void UpdateByMouse(CPoint point);
@@ -31,7 +33,7 @@ namespace Raiden
 		int high_score = 0;
 		int life_count = 3;
 		int bomb_count = 3;
-		std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>> bullets;
+		GameObjectPool<Raiden::Bullet> bullets;
 		std::clock_t fire_cooldown_clock;
 	};
 }

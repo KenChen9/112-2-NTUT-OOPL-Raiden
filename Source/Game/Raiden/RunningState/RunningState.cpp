@@ -40,9 +40,20 @@ namespace Raiden {
 		}
 	}
 
+	void RunningState::BulletEvent()
+	{
+		for (auto data : player.IsAttack()) {
+			auto index = bullets->AddElement();
+			bullets->operator[](index)->Init(data->IsFriendly());
+			bullets->operator[](index)->SetTopLeft({ data->GetSprite().GetLeft(), data->GetSprite().GetTop() });
+			bullets->operator[](index)->ApplyForce(data->GetApplyForce());
+		}
+		player.RecovryBullet();
+	}
+
 	void RunningState::InitDerived() {
 		stage_manager.Init(xml_reader.ParseStages(), fighters, bullets, boss);
-		player.Init(xml_reader.ParsePlayer(), bullets);
+		player.Init(xml_reader.ParsePlayer());
 		status_panel.InitializeStatus();
 		death_message_id = text_graphics.RegisterText({ SIZE_X / 2 - 100 , SIZE_Y / 2 }, ""); // ¥¢±Ñ
 	}
@@ -62,12 +73,13 @@ namespace Raiden {
 				test[i]->Update();
 			}
 			CollisionEvent();
+			BulletEvent();
 			this->UpdateStatusPanel();
 		}
 		else {
 			if (control.mode == ControlMode::KEYBOARD) {
 				if (control.keys.count(Key::RESET)) {
-					player.Init(xml_reader.ParsePlayer(), bullets);
+					player.Init(xml_reader.ParsePlayer());
 					text_graphics.ChangeText(death_message_id, "");
 					//fighters->Clear();
 					//bullets->Clear();

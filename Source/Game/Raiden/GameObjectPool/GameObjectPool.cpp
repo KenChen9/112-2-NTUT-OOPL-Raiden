@@ -5,6 +5,7 @@
 
 namespace Raiden
 {
+
 	template class GameObjectPool<Fighter>;
 	template class GameObjectPool<Bullet>;
 
@@ -26,6 +27,8 @@ namespace Raiden
 		pool.push_back(temp);
 		return pool.size() - 1;
 	}
+	
+
 	template<typename T>
 	void GameObjectPool<T>::Update()
 	{
@@ -58,6 +61,12 @@ namespace Raiden
 	std::shared_ptr<T> GameObjectPool<T>::operator[](std::size_t index)
 	{
 		return pool[index];
+	}
+
+	template<typename T>
+	std::vector<std::shared_ptr<T>> GameObjectPool<T>::GetVec()
+	{
+		return pool;
 	}
 
 	template<typename T>
