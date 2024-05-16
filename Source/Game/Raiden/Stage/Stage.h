@@ -18,6 +18,7 @@ namespace Raiden
 		void Show();
 		bool Over() const;
 		std::shared_ptr<Boss> GetBoss();
+		std::vector<std::shared_ptr<Bullet>> IsAttack();
 	protected:
 		virtual void InitDerived(StageData &&stage_data) = 0;
 		virtual void UpdateDerived(const Player &player) = 0;
