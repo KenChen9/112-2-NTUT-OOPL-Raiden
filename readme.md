@@ -1,3 +1,9 @@
+# NTUT 專題
+
+- NTUT 112 學年度 第 2 學期 (2024 - Spring)
+- 物件導向程式設計實習
+
+
 # OOPL 雷電 based on Leistungsstarkes Game Framework
 
 ![image](https://github.com/Chinococo/2024OOPL/assets/58754099/42b6bae8-836e-4830-9dfe-f2043de8df97)
