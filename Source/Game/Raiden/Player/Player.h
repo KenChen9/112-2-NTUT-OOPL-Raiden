@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "../../../Library/gameutil.h"
 #include "../Control/Control.h"
 #include "../Data/PlayerData.h"

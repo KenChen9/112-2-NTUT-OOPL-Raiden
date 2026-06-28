@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "RunningState.h"
 #include "../../config.h"
 
@@ -6,7 +6,7 @@ namespace Raiden {
 	void RunningState::CollisionEvent() {
 		auto player_collision_boxfighters = player.GetCollisionBox();
 		for (size_t i = 0; i < bullets->GetSize(); i++) {
-			if (bullets->operator[](i)->IsFriendly()) {//§Ú¤è¤l¼u
+			if (bullets->operator[](i)->IsFriendly()) {//æˆ‘æ–¹å­å½ˆ
 				for (size_t j = 0; j < fighters->GetSize(); j++) {
 					if (!fighters->operator[](j)->IsAlive()) {
 						continue;
@@ -30,7 +30,7 @@ namespace Raiden {
 					}
 				}
 			}
-			else {//¼Ä¤è¤l¼u
+			else {//æ•µæ–¹å­å½ˆ
 				if (player.GetLifeCount() <= 0) {
 					break;
 				}
@@ -69,7 +69,7 @@ namespace Raiden {
 		stage_manager.Init(xml_reader.ParseStages(), fighters, bullets, boss);
 		player.Init(xml_reader.ParsePlayer(), bullets);
 		status_panel.InitializeStatus();
-		death_message_id = text_graphics.RegisterText({ SIZE_X / 2 - 100 , SIZE_Y / 2 }, ""); // ¥¢±Ñ
+		death_message_id = text_graphics.RegisterText({ SIZE_X / 2 - 100 , SIZE_Y / 2 }, ""); // å¤±æ•—
 		play_audio.PlayAudio("Resources/audio/Opening.mp3");
 	}
 

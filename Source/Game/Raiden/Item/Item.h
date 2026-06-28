@@ -1,11 +1,11 @@
-#pragma once
+﻿#pragma once
 #include "Item.h"
 #include "../Collidable/Collidable.h"
 namespace Raiden
 {
 	class Item : public Collidable {
 	public:
-		void Init(CPoint& now);
+		void Init(const CPoint now);
 		void Update();
 		void Show();
 	private:

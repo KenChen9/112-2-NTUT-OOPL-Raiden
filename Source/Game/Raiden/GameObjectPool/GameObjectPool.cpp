@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "GameObjectPool.h"
 #include "../Fighter/Fighter.h"
 #include "../Bullet/Bullet.h"

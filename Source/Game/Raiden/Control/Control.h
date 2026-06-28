@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "../Key/Key.h"
 #include <set>
 #include <atltypes.h>

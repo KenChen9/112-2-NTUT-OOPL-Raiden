@@ -1,24 +1,24 @@
-#pragma once
+﻿#pragma once
 #include "../../../Library/gameutil.h"
 
 namespace Raiden
 {
 	/*
-	 * Class Name¡GCollisionBox
-	 * Class Purpose¡GDisplay CollisionBox and Create CollisionBox image
-	 * Member Variables¡G
+	 * Class Name癒GCollisionBox
+	 * Class Purpose癒GDisplay CollisionBox and Create CollisionBox image
+	 * Member Variables癒G
 	 * game_framework::CMovingBitmap _display;
 	 *	 - vector<tuple<int, int, int, int>> _boxCollisionBox;  CollisionBox vector of box,
 			first and second data in tuple  is  TopLeft of  CollisionBox 
 	 * 	 - int width;  CollisionBox image Width
 	 * 	 - int height;  CollisionBox image Height
 	 * Member Functions
-	 *   - CollisionBox ¡GConstructors Function
+	 *   - CollisionBox 癒GConstructors Function
 	 *   - Update  : Update position of this object
-	 *   - Show   ¡GDisplay Object
-	 * Constructors¡G
-	 *   - Bullet¡GNeed vector<tuple<int, int, int, int>> to create CollisionBox image
-	 * Destructor¡G
+	 *   - Show   癒GDisplay Object
+	 * Constructors癒G
+	 *   - Bullet癒GNeed vector<tuple<int, int, int, int>> to create CollisionBox image
+	 * Destructor癒G
 	 *  None
 	*/
 	class CollisionBox {

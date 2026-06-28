@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "../../../Library/gameutil.h"
 #include "../Player/Player.h"
 #include "../Data/BossData.h"
@@ -37,7 +37,7 @@ namespace Raiden
 		time_t bullet_interval = clock();
 		std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>> bullets;
 		vector<TurretGroup*> turretGroups;
-		int last_position_X, last_position_Y;  // ¤¤¤ßÂI
+		int last_position_X, last_position_Y;  // ä¸­å¿ƒé»ž
 		float angle = 0.0f;
 		int turret_groups_index = 0;
 	};

@@ -1,4 +1,4 @@
-// stdafx.h : include file for standard system include files,
+﻿// stdafx.h : include file for standard system include files,
 //  or project specific include files that are used frequently, but
 //      are changed infrequently
 //
@@ -9,6 +9,11 @@
  *      1. Remove #define _WIN32_WINNT and Preprocessor Definitions (WINVER=0x500)
  *      2. Include SDKDDKVER.h, the file automatic setting WINVER and _WIN32_WINNT in latest version
 */
+#ifndef _AFXDLL
+#define _AFXDLL
+#endif
+
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <sdkddkver.h>
 
@@ -32,5 +37,12 @@
 
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Developer Studio will insert additional declarations immediately before the previous line.
+
+// 補上現代編譯器不會主動送你的標準庫
+#include <string>
+#include <memory>
+#include <stdexcept>
+#include <iostream>
+#include <set>
 
 #endif // !defined(AFX_STDAFX_H__243A7A47_6962_11D3_9B4D_BAD1A91E5344__INCLUDED_)

@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include <string>
 #include "Source\Game\Raiden\Bomb\Bomb.h"
 #include "Source/Game/config.h"

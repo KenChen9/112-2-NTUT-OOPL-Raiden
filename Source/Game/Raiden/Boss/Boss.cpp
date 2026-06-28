@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "Boss.h"
 #include "../Player/Player.h"
 #define M_PI 3.1415926
@@ -74,7 +74,7 @@ namespace Raiden
 		if (position_index > positions.size() - 2)
 		{
 			if (clock() - move_time > 10) {
-				if (std::rand() % 1000 < 1) {  // 1%ªº¾÷²v°±¤U¨Ó10¬í					move_time += 3 * CLOCKS_PER_SEC;
+				if (std::rand() % 1000 < 1) {  // 1%çš„æ©Ÿç‡åœä¸‹ä¾†10ç§’					move_time += 3 * CLOCKS_PER_SEC;
 					if (turretGroups.size() != 0)
 						turret_groups_index = (turret_groups_index + 1) % turretGroups.size();
 					return;

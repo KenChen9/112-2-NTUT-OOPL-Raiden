@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "BossBrazil.h"
 #include <random>
 namespace Raiden
@@ -15,7 +15,7 @@ namespace Raiden
 	{
 		std::random_device rd;
 		std::mt19937 gen(rd());
-		std::uniform_int_distribution<int> dis(1, 10); // ¨Ï¥Î§ó¤jªº½d³ò
+		std::uniform_int_distribution<int> dis(1, 10); // ä½¿ç”¨æ›´å¤§çš„ç¯„åœ
 
 		int random_number = dis(gen);
 		bullet_type type;

@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "../../../Library/gameutil.h"
 #include "StatusPanel.h"
 #include <chrono>

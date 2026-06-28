@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "XmlReader.h"
 #include <string>
 #include <exception>
@@ -56,7 +56,7 @@ namespace Raiden
 			try {
 				current_elem = ParseXmlNext(current_elem, tag);
 			}catch(const std::runtime_error e){
-				//¨S¦³¤U¤@­Ó¤¸¯À
+				//æ²’æœ‰ä¸‹ä¸€å€‹å…ƒç´ 
 				break;
 			}
 			

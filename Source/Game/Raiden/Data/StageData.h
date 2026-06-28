@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "BackgroundData.h"
 #include "FighterData.h"
 #include "BossData.h"

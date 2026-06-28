@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "../../../Library/gameutil.h"
 #include "../Player/Player.h"
 #include "../Collidable/Collidable.h"

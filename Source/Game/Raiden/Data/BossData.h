@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "AttackPeriodData.h"
 #include <vector>
 #include <atltypes.h>

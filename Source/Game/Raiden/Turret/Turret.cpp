@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "Turret.h"
 #define M_PI 3.141596
 namespace Raiden {
@@ -10,7 +10,7 @@ namespace Raiden {
 			int index = bullets->AddElement();
 			bullets->operator[](index)->Init(false, straight_bullet);
 			bullets->operator[](index)->SetTopLeft(std::move(now+position));
-			// ­pºâ¤O
+			// è¨ˆç®—åŠ›
 			float radis = static_cast<float>((angle / 180.0f) * M_PI);
 			CPoint force = { static_cast<int>(std::cos(radis) * bulletSpeed), -static_cast<int>(std::sin(radis) * bulletSpeed) };
 			bullets->operator[](index)->ApplyForce(std::move(force));

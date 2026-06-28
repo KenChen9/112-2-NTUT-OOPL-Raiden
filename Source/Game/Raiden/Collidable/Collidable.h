@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "../CollisionBox/CollisionBox.h"
 
 namespace Raiden

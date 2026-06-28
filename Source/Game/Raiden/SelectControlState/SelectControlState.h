@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "../State/State.h"
 #include "../../../Library/gameutil.h"
 #include <vector>

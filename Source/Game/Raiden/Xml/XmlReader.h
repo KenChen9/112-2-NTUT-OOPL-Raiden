@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "tinyxml2.h"
 #include "../Data/TitleScreenData.h"
 #include "../Data/PlayerData.h"

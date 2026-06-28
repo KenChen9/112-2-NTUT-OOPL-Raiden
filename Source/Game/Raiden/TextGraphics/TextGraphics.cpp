@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "TextGraphics.h"
 #include <ddraw.h>
 #include "../../../Library/gameutil.h"

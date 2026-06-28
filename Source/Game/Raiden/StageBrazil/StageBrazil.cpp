@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "StageBrazil.h"
 #include "../BossBrazil/BossBrazil.h"
 #include "../../config.h"

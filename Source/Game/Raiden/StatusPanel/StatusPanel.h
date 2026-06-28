@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "../TextGraphics/TextGraphics.h"
 #include <map>
 

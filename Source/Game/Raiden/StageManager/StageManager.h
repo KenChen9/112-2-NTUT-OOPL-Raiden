@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "../Stage/Stage.h"
 #include "../Player/Player.h"
 #include "../Fighter/Fighter.h"

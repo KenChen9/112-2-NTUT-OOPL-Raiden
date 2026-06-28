@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "AudioPlayer.h"
 #include "../../../Library/audio.h"
 namespace Raiden {
@@ -21,7 +21,7 @@ namespace Raiden {
 	void AudioPlayer::PlayAudio(const char* fileName) {
 		
 		if (isAudioOpen) {
-			StopAudio(); // °±¤î¤§«eªº­µ®Ä
+			StopAudio(); // åœæ­¢ä¹‹å‰çš„éŸ³æ•ˆ
 		}
 
 		if (!game_framework::CAudio::Instance()->Load(audioID, const_cast<char*>(fileName))) {
@@ -29,6 +29,6 @@ namespace Raiden {
 			return;
 		}
 
-		game_framework::CAudio::Instance()->Play(audioID, true); // ­«½Æ¼½©ñ
+		game_framework::CAudio::Instance()->Play(audioID, true); // é‡è¤‡æ’­æ”¾
 	}
 }

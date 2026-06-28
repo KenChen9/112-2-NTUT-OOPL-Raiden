@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "../Boss/Boss.h"
 
 namespace Raiden

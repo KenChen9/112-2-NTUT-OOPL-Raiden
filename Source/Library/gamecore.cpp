@@ -1,4 +1,4 @@
-//#define	 INITGUID
+ï»¿//#define	 INITGUID
 #include "stdafx.h"
 #include "../Core/Game.h"
 #include "../Core/MainFrm.h"
@@ -14,17 +14,16 @@
 #include "../Game/config.h"
 #include "../Game/mygame.h"
 #include <filesystem>
-#include <experimental/filesystem> // Header file for pre-standard implementation
 #include <comdef.h>
-using namespace std::experimental::filesystem::v1;
+using namespace std::filesystem;
 
 
 namespace game_framework {
 
 	/////////////////////////////////////////////////////////////////////////////
 	// CGame: Game Class
-	// ³o­Óclass¬O¹CÀ¸ªºfacade¡A¬OMFC»P¦U­Ó¹CÀ¸ª¬ºAªº¾ô¼Ù¡A¦pªG¤£¼W¥[©Î´î¤Ö
-	// ¹CÀ¸ª¬ºAªº¸Ü¡A¥i¥H¤£¥ÎºŞ³o­Óclassªº¤¶­±»P¹ê§@¡C
+	// é€™å€‹classæ˜¯éŠæˆ²çš„facadeï¼Œæ˜¯MFCèˆ‡å„å€‹éŠæˆ²ç‹€æ…‹çš„æ©‹æ¨‘ï¼Œå¦‚æœä¸å¢åŠ æˆ–æ¸›å°‘
+	// éŠæˆ²ç‹€æ…‹çš„è©±ï¼Œå¯ä»¥ä¸ç”¨ç®¡é€™å€‹classçš„ä»‹é¢èˆ‡å¯¦ä½œã€‚
 	/////////////////////////////////////////////////////////////////////////////
 
 	CGame CGame::instance;
@@ -58,18 +57,18 @@ namespace game_framework {
 
 	void CGame::OnDraw()
 	{
-		CDDraw::BltBackColor(DEFAULT_BG_COLOR);	// ±N Back Plain ¶î¶Â
-		gameState->OnDraw();					// Åã¥Ü¹CÀ¸¤¤ªº¨C­Ó¤¸¯À
+		CDDraw::BltBackColor(DEFAULT_BG_COLOR);	// å°‡ Back Plain å¡—é»‘
+		gameState->OnDraw();					// é¡¯ç¤ºéŠæˆ²ä¸­çš„æ¯å€‹å…ƒç´ 
 		if (!running) {
 			//
-			// ¦pªG¦b¼È°±ª¬ºA¡A«hÅã¥ÜCtrl-Q...
+			// å¦‚æœåœ¨æš«åœç‹€æ…‹ï¼Œå‰‡é¡¯ç¤ºCtrl-Q...
 			//
 			// CMovingBitmap bmp;
 			// bmp.LoadBitmap(IDB_CONTINUE);
 			// bmp.SetTopLeft(0, 0);
 			// bmp.ShowBitmap();
 		}
-		CDDraw::BltBackToPrimary();				// ±N Back Plain ¶K¨ì¿Ã¹õ
+		CDDraw::BltBackToPrimary();				// å°‡ Back Plain è²¼åˆ°è¢å¹•
 	}
 
 	void  CGame::OnFilePause()
@@ -87,50 +86,50 @@ namespace game_framework {
 		}
 	}
 
-	bool CGame::OnIdle()  // ­×§ï¥\¯à¤£­n­×§ïOnIdle()¡A¦ÓÀ³­×§ïOnMove()¤ÎOnShow()
+	bool CGame::OnIdle()  // ä¿®æ”¹åŠŸèƒ½ä¸è¦ä¿®æ”¹OnIdle()ï¼Œè€Œæ‡‰ä¿®æ”¹OnMove()åŠOnShow()
 	{
 		if (suspended) {
 			running = false;
 			suspended = false;
 		}
 		//
-		// ±±¨î¹CÀ¸¬O§_¼È°±
+		// æ§åˆ¶éŠæˆ²æ˜¯å¦æš«åœ
 		//
 		if (!running)
 			return false;
 		//
-		// ¥H¤U¬O¹CÀ¸ªº¥D°j°é
+		// ä»¥ä¸‹æ˜¯éŠæˆ²çš„ä¸»è¿´åœˆ
 		//
-		CDDraw::BltBackColor(DEFAULT_BG_COLOR);	// ±N Back Plain ¶î¤W¹w³]ªºÃC¦â
+		CDDraw::BltBackColor(DEFAULT_BG_COLOR);	// å°‡ Back Plain å¡—ä¸Šé è¨­çš„é¡è‰²
 		gameState->OnCycle();
-		CDDraw::BltBackToPrimary();				// ±N Back Plain ¶K¨ì¿Ã¹õ
+		CDDraw::BltBackToPrimary();				// å°‡ Back Plain è²¼åˆ°è¢å¹•
 		//
-		// ¥H¤Uªºµ{¦¡±±¨î¹CÀ¸¶i¦æªº³t«×¡Aª`·N¨Æ¶µ¡G
-		// 1. ¥ÎDebug mode¥i¥HÀËµø¨C¤@¦¸°j°éªá±¼ªº®É¶¡¡A¥O¦¹®É¶¡¬°t¡C
-		// 2. ±q¤W¦¸Â÷¶}OnIdle()¦Ü¦¹¡A®É¶¡©w¬°33ms¡A¤£¥i§R°£¡A¨ä®É¶¡¤£¥i§C©ót¡C
+		// ä»¥ä¸‹çš„ç¨‹å¼æ§åˆ¶éŠæˆ²é€²è¡Œçš„é€Ÿåº¦ï¼Œæ³¨æ„äº‹é …ï¼š
+		// 1. ç”¨Debug modeå¯ä»¥æª¢è¦–æ¯ä¸€æ¬¡è¿´åœˆèŠ±æ‰çš„æ™‚é–“ï¼Œä»¤æ­¤æ™‚é–“ç‚ºtã€‚
+		// 2. å¾ä¸Šæ¬¡é›¢é–‹OnIdle()è‡³æ­¤ï¼Œæ™‚é–“å®šç‚º33msï¼Œä¸å¯åˆªé™¤ï¼Œå…¶æ™‚é–“ä¸å¯ä½æ–¼tã€‚
 		//
 		if (SHOW_GAME_CYCLE_TIME)
 			TRACE("Ellipse time for the %d th cycle=%d \n", CSpecialEffect::GetCurrentTimeCount(), CSpecialEffect::GetEllipseTime());
 		CSpecialEffect::DelayFromSetCurrentTime(GAME_CYCLE_TIME);
-		CSpecialEffect::SetCurrentTime();	// ³]©wÂ÷¶}OnIdle()ªº®É¶¡
+		CSpecialEffect::SetCurrentTime();	// è¨­å®šé›¢é–‹OnIdle()çš„æ™‚é–“
 		return true;
 	}
 
-	void CGame::OnInit()	// OnInit() ¥u¦bµ{¦¡¤@¶}©l®É°õ¦æ¤@¦¸
+	void CGame::OnInit()	// OnInit() åªåœ¨ç¨‹å¼ä¸€é–‹å§‹æ™‚åŸ·è¡Œä¸€æ¬¡
 	{
 		//
-		// ±Ò°Ê¶Ã¼Æ
+		// å•Ÿå‹•äº‚æ•¸
 		//
 		srand((unsigned)time(NULL));
 		//
-		// ¶}±ÒDirectXÃ¸¹Ï¤¶­±
+		// é–‹å•ŸDirectXç¹ªåœ–ä»‹é¢
 		//
-		CDDraw::Init(SIZE_X, SIZE_Y);							// ³]©w¹CÀ¸¸ÑªR«×
+		CDDraw::Init(SIZE_X, SIZE_Y);							// è¨­å®šéŠæˆ²è§£æåº¦
 		//
-		// ¶}±ÒDirectX­µ®Ä¤¶­±
+		// é–‹å•ŸDirectXéŸ³æ•ˆä»‹é¢
 		//
-		if (!CAudio::Instance()->Open())						// ¶}±Ò­µ®Ä¤¶­±
-			AfxMessageBox("Audio Interface Failed (muted)");	// µL­µ®Ä¤¶­±
+		if (!CAudio::Instance()->Open())						// é–‹å•ŸéŸ³æ•ˆä»‹é¢
+			AfxMessageBox("Audio Interface Failed (muted)");	// ç„¡éŸ³æ•ˆä»‹é¢
 		//
 		// Switch to the first state
 		//
@@ -143,7 +142,7 @@ namespace game_framework {
 	void CGame::OnInitStates()
 	{
 		//
-		// ©I¥s¨C­Óª¬ºAªºOnInitialUpdate
+		// å‘¼å«æ¯å€‹ç‹€æ…‹çš„OnInitialUpdate
 		//
 		for (int i = 0; i < NUM_GAME_STATES; i++)
 			gameStateTable[i]->OnInit();
@@ -152,7 +151,7 @@ namespace game_framework {
 	void CGame::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	{
 		if (running)
-			if ((nFlags & 0x4000) == 0) // ¥h°£auto repeat
+			if ((nFlags & 0x4000) == 0) // å»é™¤auto repeat
 				gameState->OnKeyDown(nChar, nRepCnt, nFlags);
 #ifdef _UNITTEST					// invike unit test if _UNITTEST is defined
 		void runTest();
@@ -243,7 +242,7 @@ namespace game_framework {
 
 	/////////////////////////////////////////////////////////////////////////////
 	// CSpecialEffect: Specail Effect functions
-	// ¤@¯ëªº¹CÀ¸¨Ã¤£»İª½±µ¾Ş§@³o­Óª«¥ó¡A¦]¦¹¥i¥H¥ş³¡²¤¹L¤£¬İ
+	// ä¸€èˆ¬çš„éŠæˆ²ä¸¦ä¸éœ€ç›´æ¥æ“ä½œé€™å€‹ç‰©ä»¶ï¼Œå› æ­¤å¯ä»¥å…¨éƒ¨ç•¥éä¸çœ‹
 	/////////////////////////////////////////////////////////////////////////////
 
 	DWORD CSpecialEffect::ctime = 0;
@@ -284,8 +283,8 @@ namespace game_framework {
 
 	/////////////////////////////////////////////////////////////////////////////
 	// CDDraw: Direct Draw Object
-	// ³o­Óclass·|«Ø¥ßDirectDrawª«¥ó¡A¥H´£¨Ñ¨ä¥Lclass¨Ï¥Î
-	// ³o­Óclassªº¥ş³¡µ{¦¡³£¬O§C¶¥ªºÃ¸¹Ï¤¶­±¡A¥i¥H¥ş³¡²¤¹L¤£¬İ
+	// é€™å€‹classæœƒå»ºç«‹DirectDrawç‰©ä»¶ï¼Œä»¥æä¾›å…¶ä»–classä½¿ç”¨
+	// é€™å€‹classçš„å…¨éƒ¨ç¨‹å¼éƒ½æ˜¯ä½éšçš„ç¹ªåœ–ä»‹é¢ï¼Œå¯ä»¥å…¨éƒ¨ç•¥éä¸çœ‹
 	/////////////////////////////////////////////////////////////////////////////
 
 	HDC							CDDraw::hdc;
@@ -335,7 +334,7 @@ namespace game_framework {
 			ddbltfx.dwSize = sizeof(ddbltfx);
 			ddbltfx.dwFillColor = MatchColorKey(lpDDSBack, color);
 			ddrval = lpDDSBack->Blt(NULL, NULL, NULL, DDBLT_COLORFILL | DDBLT_WAIT, &ddbltfx);
-			CheckDDFail("BltBackColor: blitting failed");
+			CheckDDFail((char*)"BltBackColor: blitting failed");
 		}
 	}
 
@@ -351,7 +350,7 @@ namespace game_framework {
 			if (lpDDSPrimary->IsLost())
 				RestoreSurface();
 			ddrval = lpDDSPrimary->Blt(ClientRect, lpDDSBack, ClientRect, DDBLTFAST_WAIT, NULL);
-			CheckDDFail("Blt Back to primary failed");
+			CheckDDFail((char*)"Blt Back to primary failed");
 		}
 		else {
 			if (lpDDSBack->IsLost())
@@ -365,7 +364,7 @@ namespace game_framework {
 			WindowRect.right = WindowRect.left + size_x;
 			WindowRect.bottom = WindowRect.top + size_y;
 			ddrval = lpDDSPrimary->Blt(WindowRect, lpDDSBack, ClientRect, DDBLTFAST_WAIT, NULL);
-			CheckDDFail("Blt Back to primary failed");
+			CheckDDFail((char*)"Blt Back to primary failed");
 		}
 	}
 
@@ -390,7 +389,7 @@ namespace game_framework {
 			RestoreSurface();
 
 		ddrval = lpDDSBack->Blt(TargetRect, lpDDS[SurfaceID], NULL, blt_flag, NULL);
-		CheckDDFail("Blt Bitmap to Back Failed");
+		CheckDDFail((char*)"Blt Bitmap to Back Failed");
 	}
 
 	void CDDraw::BltBitmapToBack(unsigned SurfaceID, int x, int y, double factor)
@@ -417,7 +416,7 @@ namespace game_framework {
 		if (lpDDS[SurfaceID]->IsLost())
 			RestoreSurface();
 		ddrval = lpDDSBack->Blt(TargetRect, lpDDS[SurfaceID], NULL, blt_flag, NULL);
-		CheckDDFail("Blt Bitmap to Back Failed");
+		CheckDDFail((char*)"Blt Bitmap to Back Failed");
 	}
 
 	void CDDraw::BltBitmapToBitmap(unsigned SourceID, unsigned TargetID, int x, int y)
@@ -433,7 +432,7 @@ namespace game_framework {
 		if (lpDDS[TargetID]->IsLost())
 			RestoreSurface();
 		ddrval = lpDDS[TargetID]->BltFast(x, y, lpDDS[SourceID], NULL, blt_flag);
-		CheckDDFail("Blt Bitmap to Back Failed");
+		CheckDDFail((char*)"Blt Bitmap to Back Failed");
 	}
 
 	bool CDDraw::CreateSurface()
@@ -466,16 +465,16 @@ namespace game_framework {
 	{
 
 		ddrval = lpDD->SetCooperativeLevel(AfxGetMainWnd()->m_hWnd, DDSCL_EXCLUSIVE | DDSCL_FULLSCREEN);
-		CheckDDFail("Can not SetCooperativeLevel Exclusive");
+		CheckDDFail((char*)"Can not SetCooperativeLevel Exclusive");
 
 		ddrval = lpDD->SetDisplayMode(RESOLUTION_X, RESOLUTION_Y, 32, 0, 0);
 
 		if (ddrval != DD_OK) {
 			ddrval = lpDD->SetCooperativeLevel(AfxGetMainWnd()->m_hWnd, DDSCL_NORMAL);
-			CheckDDFail("Can not SetCooperativeLevel Normal");
+			CheckDDFail((char*)"Can not SetCooperativeLevel Normal");
 			return false;
 		}
-		CheckDDFail("SetDisplayMode FAILED");
+		CheckDDFail((char*)"SetDisplayMode FAILED");
 
 		DDSURFACEDESC ddsd;
 		ZeroMemory(&ddsd, sizeof(ddsd));
@@ -483,13 +482,13 @@ namespace game_framework {
 		ddsd.dwFlags = DDSD_CAPS;
 		ddsd.ddsCaps.dwCaps = DDSCAPS_PRIMARYSURFACE;
 		ddrval = lpDD->CreateSurface(&ddsd, &lpDDSPrimary, NULL);
-		CheckDDFail("Create Primary Surface failed");
+		CheckDDFail((char*)"Create Primary Surface failed");
 
 		// Create clippers for the primary and back surfaces
 		// ddrval = lpDD->CreateClipper(0, &lpClipperPrimary, NULL);
-		// CheckDDFail("Create Primay Surface Clipper FAILED"); 
+		// CheckDDFail((char*)"Create Primay Surface Clipper FAILED"); 
 		ddrval = lpDD->CreateClipper(0, &lpClipperBack, NULL);
-		CheckDDFail("Create Back Surface Clipper FAILED");
+		CheckDDFail((char*)"Create Back Surface Clipper FAILED");
 
 		typedef struct {
 			RGNDATAHEADER hdr;
@@ -505,20 +504,20 @@ namespace game_framework {
 		memcpy(&ClipList.hdr.rcBound, &rc, sizeof(RECT));
 		memcpy(&ClipList.rgndata, &rc, sizeof(RECT));
 		ddrval = lpClipperBack->SetClipList((LPRGNDATA)&ClipList, 0);
-		CheckDDFail("SetHWnd FAILED");
+		CheckDDFail((char*)"SetHWnd FAILED");
 
 		// Create Back (Secondary) Surface
 		ddsd.dwFlags = DDSD_CAPS | DDSD_HEIGHT | DDSD_WIDTH;
 		ddsd.ddsCaps.dwCaps = DDSCAPS_OFFSCREENPLAIN;
 		ddsd.dwHeight = size_y; ddsd.dwWidth = size_x;
 		ddrval = lpDD->CreateSurface(&ddsd, &lpDDSBack, NULL);
-		CheckDDFail("Can not create back plain");
+		CheckDDFail((char*)"Can not create back plain");
 
 		// In fullscreen mode, the clipper for primary surafce is fixed to screen size
 		ddrval = lpDDSPrimary->SetClipper(lpClipperBack);
-		CheckDDFail("SetClipper FAILED");
+		CheckDDFail((char*)"SetClipper FAILED");
 		ddrval = lpDDSBack->SetClipper(lpClipperBack);
-		CheckDDFail("SetClipper FAILED");
+		CheckDDFail((char*)"SetClipper FAILED");
 		lpClipperBack->Release();
 
 		BltBackColor(RGB(0, 0, 0));
@@ -531,7 +530,7 @@ namespace game_framework {
 	{
 
 		ddrval = lpDD->SetCooperativeLevel(AfxGetMainWnd()->m_hWnd, DDSCL_NORMAL);
-		CheckDDFail("Can not SetCooperativeLevel ");
+		CheckDDFail((char*)"Can not SetCooperativeLevel ");
 
 		DDSURFACEDESC ddsd;
 		ZeroMemory(&ddsd, sizeof(ddsd));
@@ -539,16 +538,16 @@ namespace game_framework {
 		ddsd.dwFlags = DDSD_CAPS;
 		ddsd.ddsCaps.dwCaps = DDSCAPS_PRIMARYSURFACE;
 		ddrval = lpDD->CreateSurface(&ddsd, &lpDDSPrimary, NULL);
-		CheckDDFail("Create Primary Surface failed");
+		CheckDDFail((char*)"Create Primary Surface failed");
 
 		// Create clippers for the primary and back surfaces
 		ddrval = lpDD->CreateClipper(0, &lpClipperPrimary, NULL);
-		CheckDDFail("Create Primay Surface Clipper FAILED");
+		CheckDDFail((char*)"Create Primay Surface Clipper FAILED");
 		ddrval = lpDD->CreateClipper(0, &lpClipperBack, NULL);
-		CheckDDFail("Create Back Surface Clipper FAILED");
+		CheckDDFail((char*)"Create Back Surface Clipper FAILED");
 
 		ddrval = lpClipperPrimary->SetHWnd(0, AfxGetMainWnd()->m_hWnd);
-		CheckDDFail("Primary Surface SetHWnd FAILED");
+		CheckDDFail((char*)"Primary Surface SetHWnd FAILED");
 
 		typedef struct {
 			RGNDATAHEADER hdr;
@@ -564,20 +563,20 @@ namespace game_framework {
 		memcpy(&ClipList.hdr.rcBound, &rc, sizeof(RECT));
 		memcpy(&ClipList.rgndata, &rc, sizeof(RECT));
 		ddrval = lpClipperBack->SetClipList((LPRGNDATA)&ClipList, 0);
-		CheckDDFail("SetHWnd FAILED");
+		CheckDDFail((char*)"SetHWnd FAILED");
 
 		// Create Back (Secondary) Surface
 		ddsd.dwFlags = DDSD_CAPS | DDSD_HEIGHT | DDSD_WIDTH;
 		ddsd.ddsCaps.dwCaps = DDSCAPS_OFFSCREENPLAIN;
 		ddsd.dwHeight = size_y; ddsd.dwWidth = size_x;
 		ddrval = lpDD->CreateSurface(&ddsd, &lpDDSBack, NULL);
-		CheckDDFail("Can not create back plain");
+		CheckDDFail((char*)"Can not create back plain");
 
 		ddrval = lpDDSPrimary->SetClipper(lpClipperPrimary);
-		CheckDDFail("SetClipper FAILED");
+		CheckDDFail((char*)"SetClipper FAILED");
 		lpClipperPrimary->Release();
 		ddrval = lpDDSBack->SetClipper(lpClipperBack);
-		CheckDDFail("SetClipper FAILED");
+		CheckDDFail((char*)"SetClipper FAILED");
 		lpClipperBack->Release();
 
 		BltBackColor(RGB(0, 0, 0));
@@ -599,9 +598,9 @@ namespace game_framework {
 		// init lpDD
 		LPDIRECTDRAW lpDD0;
 		ddrval = DirectDrawCreate(NULL, &lpDD0, NULL);
-		CheckDDFail("DDraw create failed");
+		CheckDDFail((char*)"DDraw create failed");
 		ddrval = lpDD0->QueryInterface(IID_IDirectDraw2, (void **)&lpDD);
-		CheckDDFail("DDraw surface 2 create failed");
+		CheckDDFail((char*)"DDraw surface 2 create failed");
 		// init pCView
 		POSITION pos = AfxGetApp()->GetFirstDocTemplatePosition();
 		CDocTemplate *doc_t = AfxGetApp()->GetNextDocTemplate(pos);
@@ -635,10 +634,10 @@ namespace game_framework {
 		BitmapRect[i].bottom = ddsd.dwHeight = bitmapSize.bmHeight;
 		BitmapRect[i].right = ddsd.dwWidth = bitmapSize.bmWidth;
 		ddrval = lpDD->CreateSurface(&ddsd, &lpDDS[i], NULL);
-		CheckDDFail("Create Bitmap Surface Failed");
+		CheckDDFail((char*)"Create Bitmap Surface Failed");
 		HDC hdc;
 		ddrval = lpDDS[i]->GetDC(&hdc);
-		CheckDDFail("Get surface HDC failed");
+		CheckDDFail((char*)"Get surface HDC failed");
 		CDC cdc;
 		cdc.Attach(hdc);
 		cdc.BitBlt(0, 0, bitmapSize.bmWidth, bitmapSize.bmHeight, &mDC, 0, 0, SRCCOPY);
@@ -671,10 +670,10 @@ namespace game_framework {
 		BitmapRect[i].bottom = ddsd.dwHeight = bitmapSize.bmHeight;
 		BitmapRect[i].right = ddsd.dwWidth = bitmapSize.bmWidth;
 		ddrval = lpDD->CreateSurface(&ddsd, &lpDDS[i], NULL);
-		CheckDDFail("Create Bitmap Surface Failed");
+		CheckDDFail((char*)"Create Bitmap Surface Failed");
 		HDC hdc;
 		ddrval = lpDDS[i]->GetDC(&hdc);
-		CheckDDFail("Get surface HDC failed");
+		CheckDDFail((char*)"Get surface HDC failed");
 		CDC cdc;
 		cdc.Attach(hdc);
 		cdc.BitBlt(0, 0, bitmapSize.bmWidth, bitmapSize.bmHeight, &mDC, 0, 0, SRCCOPY);
@@ -706,10 +705,10 @@ namespace game_framework {
 		BitmapRect[i].bottom = ddsd.dwHeight = bitmapSize.bmHeight;
 		BitmapRect[i].right = ddsd.dwWidth = bitmapSize.bmWidth;
 		ddrval = lpDD->CreateSurface(&ddsd, &lpDDS[i], NULL);
-		CheckDDFail("Create Bitmap Surface Failed");
+		CheckDDFail((char*)"Create Bitmap Surface Failed");
 		HDC hdc;
 		ddrval = lpDDS[i]->GetDC(&hdc);
-		CheckDDFail("Get surface HDC failed");
+		CheckDDFail((char*)"Get surface HDC failed");
 		CDC cdc;
 		cdc.Attach(hdc);
 		cdc.BitBlt(0, 0, bitmapSize.bmWidth, bitmapSize.bmHeight, &mDC, 0, 0, SRCCOPY);
@@ -758,7 +757,7 @@ namespace game_framework {
 		if (lpDDSBack->IsLost())
 			RestoreSurface();
 		ddrval = lpDDSBack->GetDC(&hdc);
-		CheckDDFail("Get back surface HDC failed");
+		CheckDDFail((char*)"Get back surface HDC failed");
 		cdc.Attach(hdc);
 		return &cdc;
 	}
@@ -821,7 +820,7 @@ namespace game_framework {
 	{
 		cdc.Detach();
 		ddrval = lpDDSBack->ReleaseDC(hdc);
-		CheckDDFail("Release back HDC failed");
+		CheckDDFail((char*)"Release back HDC failed");
 	}
 
 	void CDDraw::ReleaseSurface()
@@ -869,7 +868,7 @@ namespace game_framework {
 			ddck.dwColorSpaceLowValue = MatchColorKey(lpDDS[SurfaceID], color);
 			ddck.dwColorSpaceHighValue = ddck.dwColorSpaceLowValue;
 			ddrval = lpDDS[SurfaceID]->SetColorKey(DDCKEY_SRCBLT, &ddck);
-			CheckDDFail("Can not Set Color Key");
+			CheckDDFail((char*)"Can not Set Color Key");
 		}
 	}
 
@@ -951,12 +950,12 @@ namespace game_framework {
 	}
 
 	/////////////////////////////////////////////////////////////////////////////
-	// ³o­Óclass¬°¹CÀ¸ªº¦UºØª¬ºA¤§Base class(¬O¤@­Óabstract class)
+	// é€™å€‹classç‚ºéŠæˆ²çš„å„ç¨®ç‹€æ…‹ä¹‹Base class(æ˜¯ä¸€å€‹abstract class)
 	/////////////////////////////////////////////////////////////////////////////
 
 	CGameState::CGameState(CGame *g)
 	{
-		game = g; 	// ³]©wgameªºpointer
+		game = g; 	// è¨­å®šgameçš„pointer
 	}
 
 	void CGameState::GotoGameState(int state)
@@ -981,45 +980,45 @@ namespace game_framework {
 		const int progress_y1 = y1 + pen_width;
 		const int progress_y2 = y2 - pen_width;
 
-		CDDraw::BltBackColor(DEFAULT_BG_COLOR);		// ±N Back Plain ¶î¤W¹w³]ªºÃC¦â
+		CDDraw::BltBackColor(DEFAULT_BG_COLOR);		// å°‡ Back Plain å¡—ä¸Šé è¨­çš„é¡è‰²
 
-		// CMovingBitmap loading;						// ¶K¤Wloading¹Ï¥Ü
+		// CMovingBitmap loading;						// è²¼ä¸Šloadingåœ–ç¤º
 		// loading.LoadBitmap({ "RES/loading.bmp" });
 		// loading.SetTopLeft(0, 0);
 		// loading.ShowBitmap();
 
 		//
-		// ¥H¤U¬°CDCªº¥Îªk
+		// ä»¥ä¸‹ç‚ºCDCçš„ç”¨æ³•
 		//
-		CDC *pDC = CDDraw::GetBackCDC();			// ¨ú±o Back Plain ªº CDC 
-		CPen *pp, p(PS_NULL, 0, RGB(0, 0, 0));		// ²M°£pen
+		CDC *pDC = CDDraw::GetBackCDC();			// å–å¾— Back Plain çš„ CDC 
+		CPen *pp, p(PS_NULL, 0, RGB(0, 0, 0));		// æ¸…é™¤pen
 		pp = pDC->SelectObject(&p);
 
-		CBrush *pb, b(RGB(155, 155, 155));				// µeºñ¦â progress®Ø
+		CBrush *pb, b(RGB(155, 155, 155));				// ç•«ç¶ è‰² progressæ¡†
 		pb = pDC->SelectObject(&b);
 		pDC->Rectangle(x1, y1, x2, y2);
 
-		CBrush b1(DEFAULT_BG_COLOR);				// µe¶Â¦â progrss¤¤¤ß
+		CBrush b1(DEFAULT_BG_COLOR);				// ç•«é»‘è‰² progrssä¸­å¿ƒ
 		pDC->SelectObject(&b1);
 		pDC->Rectangle(progress_x1, progress_y1, progress_x2_end, progress_y2);
 
-		CBrush b2(RGB(255, 255, 255));					// µe¶À¦â progrss¶i«×
+		CBrush b2(RGB(255, 255, 255));					// ç•«é»ƒè‰² progrssé€²åº¦
 		pDC->SelectObject(&b2);
 		pDC->Rectangle(progress_x1, progress_y1, progress_x2, progress_y2);
 
-		pDC->SelectObject(pp);						// ÄÀ©ñ pen
-		pDC->SelectObject(pb);						// ÄÀ©ñ brush
+		pDC->SelectObject(pp);						// é‡‹æ”¾ pen
+		pDC->SelectObject(pb);						// é‡‹æ”¾ brush
 
 
-		CTextDraw::ChangeFontLog(pDC, 30, "·L³n¥¿¶ÂÅé", RGB(255, 255, 255));
+		CTextDraw::ChangeFontLog(pDC, 30, "å¾®è»Ÿæ­£é»‘é«”", RGB(255, 255, 255));
 
 		CTextDraw::Print(pDC, x1, (int)(SIZE_Y * 0.40), message.c_str());
 
-		CDDraw::ReleaseBackCDC();					// ©ñ±¼ Back Plain ªº CDC
+		CDDraw::ReleaseBackCDC();					// æ”¾æ‰ Back Plain çš„ CDC
 		//
-		// ¦pªG¬O§Oªº¦a¤è¥Î¨ìCDCªº¸Ü¡A¤£­n§Û¥H¤U³o¦æ¡A§_«h¿Ã¹õ·|°{Ã{
+		// å¦‚æœæ˜¯åˆ¥çš„åœ°æ–¹ç”¨åˆ°CDCçš„è©±ï¼Œä¸è¦æŠ„ä»¥ä¸‹é€™è¡Œï¼Œå¦å‰‡è¢å¹•æœƒé–ƒçˆ
 		//
-		CDDraw::BltBackToPrimary();					// ±N Back Plain ¶K¨ì¿Ã¹õ
+		CDDraw::BltBackToPrimary();					// å°‡ Back Plain è²¼åˆ°è¢å¹•
 	}
 
 	void CGameState::OnDraw() // Template Method

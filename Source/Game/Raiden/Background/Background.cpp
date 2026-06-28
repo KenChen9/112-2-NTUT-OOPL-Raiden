@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "Background.h"
 #include "../../config.h"
 #include <ctime>

@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "../Control/Control.h"
 #include "../Xml/XmlReader.h"
 
